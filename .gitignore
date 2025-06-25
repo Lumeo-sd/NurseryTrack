@@ -1,0 +1,25 @@
+# Node modules
+node_modules/
+# Expo
+.expo/
+.expo-shared/
+# Build & cache
+*.log
+*.tmp
+*.lock
+*.cache
+dist/
+build/
+# React Native
+ios/
+android/
+# System
+.DS_Store
+Thumbs.db
+# Environment
+.env
+# Firebase/Google configs
+google-services.json
+GoogleService-Info.plist
+firebase.js.local
+firebaseConfig.js
