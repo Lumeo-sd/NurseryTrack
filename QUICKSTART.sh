@@ -275,8 +275,8 @@ show_access_info() {
         print_header "Access Services"
 
         echo -e "${BLUE}Backend API:${NC}"
-        echo "  URL: http://localhost:3000/api"
-        echo "  Health: http://localhost:3000/api/health"
+        echo "  URL: http://localhost:3005/api"
+        echo "  Health: http://localhost:3005/api/health"
 
         echo ""
         echo -e "${BLUE}MinIO (Object Storage):${NC}"

@@ -15,7 +15,7 @@ This guide will help you deploy NurseryTrack as a complete self-hosted open-sour
               ▼
 ┌─────────────────────────────────────────┐
 │   Node.js Backend (Express)             │
-│   Port: 3000                            │
+│   Port: 3005                            │
 └─────────────┬───────────────────────────┘
               │
     ┌─────────┼─────────┬──────────┐
@@ -113,7 +113,7 @@ NODE_ENV=production
 CORS_ORIGIN=https://your-domain.com
 
 # API Port
-API_PORT=3000
+API_PORT=3005
 
 # Optional: Email Configuration
 SMTP_HOST=smtp.gmail.com
@@ -202,7 +202,7 @@ http {
 
     # API Server
     upstream api {
-        server api:3000;
+        server api:3005;
     }
 
     # MinIO Server

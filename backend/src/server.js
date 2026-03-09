@@ -1,47 +1,49 @@
-const express = require('express');
-const cors = require('cors');
-const dotenv = require('dotenv');
-const path = require('path');
+const express = require("express");
+const cors = require("cors");
+const dotenv = require("dotenv");
+const path = require("path");
 
 // Load environment variables
 dotenv.config();
 
 // Import routes
-const authRoutes = require('./routes/auth');
-const batchesRoutes = require('./routes/batches');
-const varietiesRoutes = require('./routes/varieties');
-const uploadRoutes = require('./routes/upload');
-const actionLogsRoutes = require('./routes/actionLogs');
+const authRoutes = require("./routes/auth");
+const batchesRoutes = require("./routes/batches");
+const varietiesRoutes = require("./routes/varieties");
+const uploadRoutes = require("./routes/upload");
+const actionLogsRoutes = require("./routes/actionLogs");
 
 // Import middleware
-const { authMiddleware } = require('./middleware/auth');
+const { authMiddleware } = require("./middleware/auth");
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3005;
 
 // Middleware
-app.use(cors({
-  origin: process.env.CORS_ORIGIN || '*',
-  credentials: true
-}));
+app.use(
+  cors({
+    origin: process.env.CORS_ORIGIN || "*",
+    credentials: true,
+  }),
+);
 
 app.use(express.json());
-app.use(express.urlencoded({ limit: '50mb', extended: true }));
+app.use(express.urlencoded({ limit: "50mb", extended: true }));
 
 // Health check
-app.get('/health', (req, res) => {
-  res.json({ status: 'OK', timestamp: new Date().toISOString() });
+app.get("/health", (req, res) => {
+  res.json({ status: "OK", timestamp: new Date().toISOString() });
 });
 
 // API Routes
-app.use('/api/auth', authRoutes);
-app.use('/api/batches', batchesRoutes);
-app.use('/api/varieties', varietiesRoutes);
-app.use('/api/upload', uploadRoutes);
-app.use('/api/action-logs', actionLogsRoutes);
+app.use("/api/auth", authRoutes);
+app.use("/api/batches", batchesRoutes);
+app.use("/api/varieties", varietiesRoutes);
+app.use("/api/upload", uploadRoutes);
+app.use("/api/action-logs", actionLogsRoutes);
 
 // Static files for MinIO objects (optional proxy)
-app.get('/storage/:bucket/*', (req, res) => {
+app.get("/storage/:bucket/*", (req, res) => {
   const { bucket } = req.params;
   const fileName = req.params[0];
 
@@ -53,18 +55,18 @@ app.get('/storage/:bucket/*', (req, res) => {
 // 404 handler
 app.use((req, res) => {
   res.status(404).json({
-    error: 'Not found',
+    error: "Not found",
     path: req.path,
-    method: req.method
+    method: req.method,
   });
 });
 
 // Error handler
 app.use((err, req, res, next) => {
-  console.error('Error:', err);
+  console.error("Error:", err);
   res.status(err.status || 500).json({
-    error: err.message || 'Internal server error',
-    ...(process.env.NODE_ENV === 'development' && { stack: err.stack })
+    error: err.message || "Internal server error",
+    ...(process.env.NODE_ENV === "development" && { stack: err.stack }),
   });
 });
 
@@ -76,15 +78,18 @@ const server = app.listen(PORT, () => {
 ║     Running on port ${PORT}              ║
 ╚════════════════════════════════════════╝
   `);
-  console.log('Environment:', process.env.NODE_ENV || 'development');
-  console.log('Database:', `${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`);
+  console.log("Environment:", process.env.NODE_ENV || "development");
+  console.log(
+    "Database:",
+    `${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`,
+  );
 });
 
 // Graceful shutdown
-process.on('SIGTERM', () => {
-  console.log('SIGTERM received, shutting down gracefully...');
+process.on("SIGTERM", () => {
+  console.log("SIGTERM received, shutting down gracefully...");
   server.close(() => {
-    console.log('Server closed');
+    console.log("Server closed");
     process.exit(0);
   });
 });

@@ -105,7 +105,7 @@ npm install axios @react-native-async-storage/async-storage
 npm uninstall firebase
 
 # Update API configuration in .env
-echo "REACT_APP_API_URL=http://localhost:3000/api" >> .env
+echo "REACT_APP_API_URL=http://localhost:3005/api" >> .env
 ```
 
 ### 3. Deploy Backend
@@ -130,7 +130,7 @@ Update your app to use the REST API:
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:3000/api';
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:3005/api';
 
 const api = axios.create({
   baseURL: API_BASE_URL,
@@ -356,7 +356,7 @@ CREATE TABLE photos (
 
 ### .env (Frontend)
 ```env
-REACT_APP_API_URL=http://localhost:3000/api
+REACT_APP_API_URL=http://localhost:3005/api
 REACT_APP_STORAGE_URL=http://localhost:9000
 REACT_APP_ENABLE_OFFLINE_MODE=true
 REACT_APP_ENABLE_QR_SCAN=true
@@ -384,7 +384,7 @@ MINIO_BUCKET_NAME=nursery-photos
 MINIO_USE_SSL=false
 
 # Server
-PORT=3000
+PORT=3005
 NODE_ENV=production
 CORS_ORIGIN=https://your-domain.com
 ```
@@ -419,7 +419,7 @@ services:
   api:
     build: ./backend
     ports:
-      - "3000:3000"
+      - "3005:3005"
     depends_on:
       - postgres
       - minio
@@ -496,7 +496,7 @@ const photoUrl = response.data.url;
 ### API Connection Error
 ```javascript
 // Check API is running
-curl http://localhost:3000/api/health
+curl http://localhost:3005/api/health
 
 // Check .env REACT_APP_API_URL
 cat .env | grep API_URL
@@ -526,7 +526,7 @@ cat backend/.env | grep JWT_SECRET
 # In React DevTools: AsyncStorage.getItem('authToken')
 
 # Verify login endpoint
-curl -X POST http://localhost:3000/api/auth/login \
+curl -X POST http://localhost:3005/api/auth/login \
   -H "Content-Type: application/json" \
   -d '{"email":"admin@test.com","password":"admin123"}'
 ```

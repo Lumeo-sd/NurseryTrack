@@ -185,7 +185,7 @@ npm install
 npm start
 
 # 8. Access services
-# API: http://localhost:3000/api/health
+# API: http://localhost:3005/api/health
 # MinIO: http://localhost:9001
 # pgAdmin: http://localhost:5050
 ```
@@ -210,7 +210,7 @@ cd NurseryTrack
 
 # 3. Configure with production settings
 cp .env.example .env
-# Edit .env with production values
+# Edit .env with production values (API_PORT=3005)
 
 # 4. Setup SSL certificate
 certbot certonly --standalone -d your-domain.com
@@ -399,14 +399,14 @@ MINIO_BUCKET_NAME=nursery-photos
 MINIO_USE_SSL=false
 
 # Server
-PORT=3000
+PORT=3005
 NODE_ENV=production
 CORS_ORIGIN=https://your-domain.com
 ```
 
 #### Frontend (`.env`)
 ```env
-REACT_APP_API_URL=http://localhost:3000/api
+REACT_APP_API_URL=http://localhost:3005/api
 REACT_APP_STORAGE_URL=http://localhost:9000
 REACT_APP_ENABLE_OFFLINE_MODE=true
 REACT_APP_ENABLE_QR_SCAN=true
@@ -469,7 +469,7 @@ The `docker-compose.yml` includes:
 | PostgreSQL | 5432 | Main database |
 | MinIO | 9000/9001 | Object storage + console |
 | Redis | 6379 | Caching layer |
-| Node.js API | 3000 | Backend API server |
+| Node.js API | 3005 | Backend API server |
 | Nginx | 80/443 | Reverse proxy |
 | pgAdmin | 5050 | Database management (dev) |
 

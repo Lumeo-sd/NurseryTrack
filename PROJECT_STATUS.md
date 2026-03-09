@@ -195,7 +195,7 @@ photos (id, batch_id, file_path, file_name, uploaded_by, uploaded_at)
   - **Redis 7** (Port 6379)
     - Caching layer
     - Health checks
-  - **Node.js API** (Port 3000)
+  - **Node.js API** (Port 3005)
     - Backend service
     - Environment configuration
     - Health checks
@@ -415,7 +415,7 @@ docker-compose up -d
 docker-compose exec api npm run migrate
 
 # Access services
-# API: http://localhost:3000/api/health
+# API: http://localhost:3005/api/health
 # MinIO: http://localhost:9001
 # pgAdmin: http://localhost:5050
 ```
@@ -504,7 +504,7 @@ docker-compose exec api npm run migrate
    - Or manually: `docker-compose up -d`
 
 3. ✅ Test the API
-   - Visit `http://localhost:3000/api/health`
+   - Visit `http://localhost:3005/api/health`
    - Check MinIO at `http://localhost:9001`
 
 ### Short Term (This Week)
