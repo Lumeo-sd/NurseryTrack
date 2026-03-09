@@ -1,25 +1,96 @@
-# Node modules
+# Dependencies
 node_modules/
+.pnp
+.pnp.js
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+.env.production
+
+# Build outputs
+dist/
+build/
+.next/
+out/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage
+coverage/
+.nyc_output/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Testing
+.jest/
+.mocha/
+
+# Cache
+.cache/
+.eslintcache
+
+# Docker volumes
+postgres_data/
+minio_data/
+redis_data/
+pgadmin_data/
+
+# Certificates
+certs/
+*.pem
+*.key
+*.crt
+
+# Backups
+backups/
+*.sql
+*.sql.gz
+*.tar.gz
+
+# OS specific
+.DS_Store
+Thumbs.db
+*.tmp
+
 # Expo
 .expo/
 .expo-shared/
-# Build & cache
-*.log
-*.tmp
-*.lock
-*.cache
 dist/
-build/
-# React Native
-ios/
-android/
-# System
-.DS_Store
-Thumbs.db
-# Environment
-.env
-# Firebase/Google configs
-google-services.json
-GoogleService-Info.plist
-firebase.js.local
-firebaseConfig.js
+npm/
+
+# Mobile app specifics
+.buckconfig.local
+.watchmanconfig
+local.properties
+*.jks
+*.p12
+*.key
+*.keystore
+*.mobileprovision
+*.orig.*
+web-build/
+
+# Misc
+*.bak
+*.swp
+.parcel-cache
+.parcel-cache/

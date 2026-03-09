@@ -1,25 +1,63 @@
 {
   "name": "nurserytrack",
   "version": "1.0.0",
+  "description": "Open Source Self-Hosted Nursery Management System - Full stack application for managing plant nurseries, greenhouses, and propagation facilities",
   "main": "App.js",
   "private": true,
+  "keywords": [
+    "nursery",
+    "greenhouse",
+    "inventory",
+    "management",
+    "plants",
+    "open-source",
+    "self-hosted",
+    "react-native",
+    "node.js",
+    "postgresql"
+  ],
+  "author": {
+    "name": "NurseryTrack Contributors",
+    "url": "https://github.com/Lumeo-sd/NurseryTrack"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Lumeo-sd/NurseryTrack.git"
+  },
+  "homepage": "https://github.com/Lumeo-sd/NurseryTrack#readme",
+  "bugs": {
+    "url": "https://github.com/Lumeo-sd/NurseryTrack/issues"
+  },
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
-    "ios": "expo start --ios"
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "eject": "expo eject",
+    "test": "jest",
+    "lint": "eslint .",
+    "format": "prettier --write '**/*.{js,json,md}'",
+    "docker:build": "docker-compose build",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f",
+    "migrate": "docker-compose exec api npm run migrate",
+    "backup": "bash ./backup.sh"
   },
   "dependencies": {
     "@react-navigation/bottom-tabs": "^6.5.7",
     "@react-navigation/native": "^6.1.6",
     "@react-navigation/native-stack": "^6.9.12",
+    "axios": "^1.6.2",
     "expo": "~50.0.0",
     "expo-barcode-scanner": "~12.7.0",
     "expo-camera": "~14.1.0",
     "expo-status-bar": "~1.12.0",
-    "firebase": "^10.11.0",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-native": "0.73.4",
+    "react-native-async-storage": "^1.21.0",
     "react-native-gesture-handler": "~2.15.0",
     "react-native-paper": "^5.8.0",
     "react-native-qrcode-svg": "^6.2.0",
@@ -28,5 +66,27 @@
     "react-native-screens": "~3.29.0",
     "react-native-svg": "14.1.0",
     "victory-native": "41.17.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.23.0",
+    "@testing-library/react-native": "^12.0.0",
+    "babel-jest": "^29.7.0",
+    "eslint": "^8.50.0",
+    "jest": "^29.7.0",
+    "prettier": "^3.0.0",
+    "react-test-renderer": "19.0.0"
+  },
+  "jest": {
+    "preset": "react-native",
+    "testEnvironment": "node"
+  },
+  "babel": {
+    "presets": [
+      "babel-preset-expo"
+    ]
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
   }
 }

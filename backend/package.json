@@ -1,0 +1,35 @@
+{
+  "name": "nurserytrack-backend",
+  "version": "1.0.0",
+  "description": "NurseryTrack Backend API - Open Source Self-Hosted",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "migrate": "node src/db/migrate.js"
+  },
+  "keywords": [
+    "nursery",
+    "inventory",
+    "management",
+    "open-source"
+  ],
+  "author": "NurseryTrack",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "pg": "^8.11.3",
+    "jsonwebtoken": "^9.1.2",
+    "bcrypt": "^5.1.1",
+    "multer": "^1.4.5-lts.1",
+    "minio": "^7.1.0",
+    "dotenv": "^16.3.1",
+    "cors": "^2.8.5",
+    "express-validator": "^7.0.1",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
